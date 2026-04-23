@@ -4,8 +4,8 @@ import { useState } from "react";
 import game, { TextType, OptionType } from "@/components/Game";
 
 type ModernProps = {
-    idx?: number,
-    updateCallback: Function,
+  idx?: number,
+  updateCallback: Function,
 };
 
 export default function Modern(props: ModernProps) {

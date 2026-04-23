@@ -4,8 +4,8 @@ import { useState } from "react";
 import game, { TextType, OptionType } from "@/components/Game";
 
 type LegacyProps = {
-    idx?: number,
-    updateCallback: Function,
+  idx?: number,
+  updateCallback: Function,
 };
 
 export default function Legacy(props: LegacyProps) {
@@ -41,13 +41,13 @@ export default function Legacy(props: LegacyProps) {
     const tailwindWeightPattern = /^font-(?:thin|extralight|light|normal|medium|semibold|bold|extrabold|black)$/;
 
     stylesArr.forEach((style) => {
-        if (tailwindColorPattern.test(style)) {
-            return filteredStylesArr.push(style);
-        }
+      if (tailwindColorPattern.test(style)) {
+        return filteredStylesArr.push(style);
+      }
 
-        if (tailwindWeightPattern.test(style)) {
-            return filteredStylesArr.push(style);
-        }
+      if (tailwindWeightPattern.test(style)) {
+        return filteredStylesArr.push(style);
+      }
     });
 
     return filteredStylesArr.join(' ');

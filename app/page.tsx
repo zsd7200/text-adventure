@@ -27,6 +27,7 @@ export default function Home() {
           after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#64b45c]"></div>
         <span className="select-none text-sm font-medium text-heading">modern</span>
       </label>
+
       {useModern && <Modern idx={index} updateCallback={updateIndex} />}
       {!useModern && <Legacy idx={index} updateCallback={updateIndex} />}
     </>

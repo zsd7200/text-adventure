@@ -5,6 +5,8 @@ Text entered in `components/Game.tsx` is joined together as `<span>` elements wh
 
 All styles barring any text colors or font weights are ignored when viewing in Legacy mode in an attempt to keep the style reminiscent of a game one might play on a terminal, while still allowing for some flavor.
 
+This has no implementation for any sort of inventory or health systems--it is simply a way to enjoy an interactive story.
+
 ## Running
 
 1. Edit `components/Game.tsx` to your liking.

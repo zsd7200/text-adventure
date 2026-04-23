@@ -19,6 +19,7 @@ export default function Legacy(props: LegacyProps) {
   const gotoIndex = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== 'Enter') return;
     if (!input || input === '') return;
+    if (!game[index].options[+input]) return;
 
     const goto = game[index].options[+input].goto;
     if (!goto && goto !== 0) return;

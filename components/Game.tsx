@@ -153,6 +153,10 @@ const game: Array<GameType> = [
         {
             innerContent: 'choice...',
         },
+        {
+            innerContent: ':(',
+            styles: 'text-red-300 font-bold',
+        },
       ],
     },
     options: [],

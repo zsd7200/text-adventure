@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import game, { TextType, OptionType } from "@/components/Game";
+import { addSpace } from "@/components/Common";
 
 type LegacyProps = {
   idx?: number,
@@ -55,32 +56,69 @@ export default function Legacy(props: LegacyProps) {
   
   return (
     <div className="flex flex-col mx-auto justify-center text-left flex-1 font-mono">
-      <div className="flex text-left gap-x-2">
-        {game[index].content.title.map((text: TextType, i: number) => {
-          return <span className={filterStyles(text.styles)} key={`${i}-${text.innerContent.toLowerCase().replace(' ', '')}`}>{text.innerContent}</span>
+      <div className="flex text-left whitespace-pre">
+        {game[index].content.title.map((title: TextType, i: number) => {
+          return (
+            <span 
+              className={filterStyles(title.styles)} 
+              key={`${i}-${title.innerContent.toLowerCase().replace(' ', '')}`}
+            >
+                {(i == 0) 
+                  ? title.innerContent 
+                  : addSpace(title.innerContent)
+                }
+            </span>
+          )
         })}
       </div>
       <div className="flex flex-col">
-        <div className="flex gap-x-2">
+        <div className="flex whitespace-pre">
           {game[index].content.text.map((text: TextType, i: number) => {
-            return <span className={filterStyles(text.styles)} key={`${i}-${text.innerContent.toLowerCase().replace(' ', '')}`}>{text.innerContent}</span>
+            return (
+              <span 
+                className={filterStyles(text.styles)} 
+                key={`${i}-${text.innerContent.toLowerCase().replace(' ', '')}`}
+              >
+                {(i == 0) 
+                  ? text.innerContent 
+                  : addSpace(text.innerContent)
+                }
+              </span>
+            )
           })}
         </div>
-        <div className="flex gap-x-2">
+        <div className="flex whitespace-pre">
           {game[index].content.subtext && 
             game[index].content.subtext.map((subtext: TextType, i: number) => {
-              return <span className={`${filterStyles(subtext.styles)} text-xs`} key={`${i}-${subtext.innerContent.toLowerCase().replace(' ', '')}`}>{subtext.innerContent}</span>
+              return (
+                <span 
+                  className={`${filterStyles(subtext.styles)} text-xs`} 
+                  key={`${i}-${subtext.innerContent.toLowerCase().replace(' ', '')}`}
+                >
+                  {(i == 0) 
+                    ? subtext.innerContent 
+                    : addSpace(subtext.innerContent)
+                  }
+                </span>
+              )
             })
           }
         </div>
       </div>
       <div className="flex flex-col gap-x-8 mt-2">
         {game[index].options.map((option: OptionType, i: number) => (
-          <div className={`${filterStyles(option.styles)} flex gap-x-2`} key={`${i}-${option.goto}`}>
+          <div className={`${filterStyles(option.styles)} flex whitespace-pre`} key={`${i}-${option.goto}`}>
             [{i}]: 
             {
-              option.text.map((text) => {
-                return <span className={filterStyles(text.styles)} key={`${i}-${text.innerContent.toLowerCase().replace(' ', '')}`}>{text.innerContent}</span>
+              option.text.map((text: TextType) => {
+                return (
+                  <span 
+                    className={filterStyles(text.styles)} 
+                    key={`${i}-${text.innerContent.toLowerCase().replace(' ', '')}`}
+                  >
+                    {addSpace(text.innerContent)}
+                  </span>
+                )
               })
             }
           </div>
